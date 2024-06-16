@@ -39,12 +39,13 @@ fetch('https://fakestoreapi.com/products')
         categories[category].forEach(product => {
             const listItemBottom = document.createElement('li');
             listItemBottom.classList.add('best_item_bottom');
+            let a =Math.floor(Math.random() * 100);
             listItemBottom.innerHTML = `
                 <img src="${product.image}" alt="${product.title}" class="best_img">
                 <h3 class="best_item_title">${product.title}</h3>
-                <div class="best_money">$${(product.price * 1.2).toFixed(2)}</div>
+                <div class="best_money">$${(product.price * (1-a / 100)).toFixed(2)}</div>
                 <div class="best_big_money">$${product.price}</div>
-                <div class="best_protsent">${Math.floor(Math.random() * 100)}% OFF</div>
+                <div class="best_protsent">${a}% OFF</div>
             `;
             productList.appendChild(listItemBottom);
         });
